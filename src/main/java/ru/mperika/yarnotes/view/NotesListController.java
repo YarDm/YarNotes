@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
 import ru.mperika.yarnotes.YarNotes;
+import ru.mperika.yarnotes.model.DataModel;
 import ru.mperika.yarnotes.model.Note;
 
 /**
@@ -27,7 +28,7 @@ public class NotesListController {
     @FXML
     private TableColumn<Note,String> noteColumn;
     
-    YarNotes mainApp;
+    DataModel dataModel;
     public NotesListController(){
         
     }
@@ -40,11 +41,10 @@ public class NotesListController {
         
     }    
     
-    public void setMainApp(YarNotes mainApp){
-        this.mainApp = mainApp;
-        
-        //TODO change value to data set
-        tableView.setItems(value);
+    public void setDataModel(DataModel dataModel){
+        this.dataModel = dataModel;
+
+        tableView.setItems(dataModel.getNoteData());
     }
     
 }
