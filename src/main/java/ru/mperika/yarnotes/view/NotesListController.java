@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
-import ru.mperika.yarnotes.MainApp;
+import ru.mperika.yarnotes.YarNotes;
 import ru.mperika.yarnotes.model.Note;
 
 /**
@@ -27,8 +27,7 @@ public class NotesListController {
     @FXML
     private TableColumn<Note,String> noteColumn;
     
-    private MainApp mainApp;
-    
+    YarNotes mainApp;
     public NotesListController(){
         
     }
@@ -36,20 +35,16 @@ public class NotesListController {
     
     @FXML
     private void initialize() {
-        dateColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Note, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Note, String> cellData) {
-                return cellData.getValue().dateProperty();
-            }
-        });
-        noteColumn.setCellValueFactory(cellData -> cellData.getValue().noteProperty());
+        dateColumn.setCellValueFactory((TableColumn.CellDataFeatures<Note, String> cellData) -> cellData.getValue().dateProperty());
+        noteColumn.setCellValueFactory((TableColumn.CellDataFeatures<Note, String> cellData) -> cellData.getValue().noteProperty());
         
     }    
     
-    public void setMainApp(MainApp mainApp){
+    public void setMainApp(YarNotes mainApp){
         this.mainApp = mainApp;
         
-        tableView.setItems(mainApp.getNoteData());
+        //TODO change value to data set
+        tableView.setItems(value);
     }
     
 }

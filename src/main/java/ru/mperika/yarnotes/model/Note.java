@@ -46,7 +46,7 @@ public class Note {
     }
     
     public void setDate(LocalDate ldate){
-        date.set(ldate.now().toString());
+        date.set(ldate.toString());
     }
     
     public String getDate(){

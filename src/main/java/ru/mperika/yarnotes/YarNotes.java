@@ -20,39 +20,21 @@ import ru.mperika.yarnotes.view.NotesListController;
  *
  * @author Y. Dmitriv <y.o.dmitriv@gmail.com>
  */
-public class MainApp extends Application {
+public class YarNotes extends Application {
 
     private Stage primaryStage;
 
-    private ObservableList<Note> noteData = FXCollections.observableArrayList();
-
-    public MainApp() {
-        noteData.add(new Note(LocalDate.now(), "Hello, how are you?"));
-        noteData.add(new Note(LocalDate.now(), "Fuck off muderfucker!"));
-        noteData.add(new Note(LocalDate.now(), "FUUUUUUUUUUCK!"));
-    }
-
-    public ObservableList<Note> getNoteData() {
-        return this.noteData;
-    }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
-        try {
+        
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/NotesList.fxml"));
             Scene scene = new Scene(root);
             this.primaryStage = primaryStage;
             this.primaryStage.setTitle("Yar Notes");
             this.primaryStage.setScene(scene);
             this.primaryStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         
-
-        /**NotesListController nlc = new NotesListController();
-        nlc.setMainApp(this);
-*/
+       
     }
 
     /**
