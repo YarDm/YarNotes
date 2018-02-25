@@ -48,8 +48,8 @@ public class MainApp extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-
+        //TODO
+        //При инициализации данных приложение ломается
         /**NotesListController nlc = new NotesListController();
         nlc.setMainApp(this);
 */
