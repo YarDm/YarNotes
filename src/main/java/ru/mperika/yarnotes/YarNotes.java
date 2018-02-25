@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ru.mperika.yarnotes;
 
 import java.io.IOException;
@@ -31,24 +27,12 @@ public class YarNotes extends Application {
     private AnchorPane anchorPane;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Yar Notes");
         
-        showNotesOverview();
-                
-        
-        /*DataModel dm = new DataModel();
-                
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/NotesList.fxml"));
-        Scene scene = new Scene(root);
-        
-        this.primaryStage.setScene(scene);
-        this.primaryStage.show();
-
-        NotesListController nlc = root.getController();
-        nlc.setDataModel(dm);*/
-       
+        showNotesOverview();   
+              
     }
     
     public void showNotesOverview(){
