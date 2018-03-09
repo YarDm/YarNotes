@@ -29,6 +29,7 @@ public class NotesListController {
     private TableColumn<Note,String> noteColumn;
     
     DataModel dataModel;
+    
     public NotesListController(){
         
     }

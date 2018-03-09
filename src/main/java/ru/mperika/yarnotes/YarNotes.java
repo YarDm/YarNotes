@@ -37,15 +37,25 @@ public class YarNotes extends Application {
     
     public void showNotesOverview(){
         try {
+            //создан объект загрузчика для FXML файлов
             FXMLLoader loader = new FXMLLoader();
+            //добавляем путь используя рефлексию
             loader.setLocation(YarNotes.class.getResource("/fxml/NotesList.fxml"));
+            /**
+             * в этом случае выражение в скобках рботает скорее не как приведение типов, а как выбор
+             * соответствующего тега из иерархии FXML
+             * метод load() загружает всю иерархию из FXML
+            */
             anchorPane = (AnchorPane) loader.load();
             Scene scene = new Scene(anchorPane);
             primaryStage.setScene(scene);
             primaryStage.show();
             
-            DataModel dm = new DataModel();
+            //Объект создается из класса объекта связанного с корневым элементом, метод getController() 
+            //возвращает именно контроллер связанный с корневым элементом.
             NotesListController nlc = loader.getController();
+            
+            DataModel dm = new DataModel();
             nlc.setDataModel(dm);
         } catch (IOException ex) {
             Logger.getLogger(YarNotes.class.getName()).log(Level.SEVERE, null, ex);
